@@ -74,7 +74,7 @@ function addFullImg(event) {
     elementFullHeading.textContent = elementImg.alt
 }
 
-const itemTemplate = document.querySelector('.template').content
+const itemTemplate = document.querySelector('.template').content.querySelector('.element')
 const elements = document.querySelector('.elements')
 const popupFull = document.querySelector('.popup-full')
 const popupFullClose = document.querySelector('.popup-full__close')
