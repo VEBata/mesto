@@ -29,8 +29,8 @@ popupForm.addEventListener('submit', (event) => {
 
 buttonPopupOpen.addEventListener('click', () => {
     openPopup(popupBox);
-    nameInput.value = '';
-    textInput.value = '';
+    nameInput.value = profileName.textContent;
+    textInput.value = profileText.textContent;
 })
 
 const cardAdd = document.querySelector('.profile__button-plus')
