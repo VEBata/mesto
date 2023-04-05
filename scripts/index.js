@@ -62,8 +62,8 @@ function basketDelete(basket) {
         basketDelete.remove();
 }
 
-const elementFullImg = document.querySelector('.popup-full__img')
-const elementFullHeading = document.querySelector('.popup-full__heading')
+const elementFullImg = document.querySelector('.popup__img-full')
+const elementFullHeading = document.querySelector('.popup__heading-full')
 
 // добавляет фулскрин на картинки
 function addFullImg(event) {
