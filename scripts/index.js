@@ -62,35 +62,35 @@ function basketDelete(basket) {
         basketDelete.remove();
 }
 
-const elementFullImg = document.querySelector('.popup__img-full')
-const elementFullHeading = document.querySelector('.popup__heading-full')
+const elementFullImg = document.querySelector('.popup__img-full');
+const elementFullHeading = document.querySelector('.popup__heading-full');
 
 // добавляет фулскрин на картинки
 function addFullImg(event) {
-    const elementImg = event.target.closest('.element__img')
+    const elementImg = event.target.closest('.element__img');
     openPopup(popupFull)
     elementFullImg.src = elementImg.src
     elementFullImg.alt = elementImg.alt
     elementFullHeading.textContent = elementImg.alt
 }
 
-const itemTemplate = document.querySelector('.template').content.querySelector('.element')
-const elements = document.querySelector('.elements')
-const popupFull = document.querySelector('.popup-full')
-const popupFullClose = document.querySelector('.popup-full__close')
+const itemTemplate = document.querySelector('.template').content.querySelector('.element');
+const elements = document.querySelector('.elements');
+const popupFull = document.querySelector('.popup-full');
+const popupFullClose = document.querySelector('.popup-full__close');
 
 function setEventListeners(htmlElement) {
-    htmlElement.querySelector('.element__button_basket').addEventListener('click', basketDelete)
-    htmlElement.querySelector('.element__button').addEventListener('click', clickLike)
-    htmlElement.querySelector('.element__img').addEventListener('click', addFullImg)
+    htmlElement.querySelector('.element__button_basket').addEventListener('click', basketDelete);
+    htmlElement.querySelector('.element__button').addEventListener('click', clickLike);
+    htmlElement.querySelector('.element__img').addEventListener('click', addFullImg);
 }
 
 //создаем карточку
 function createCard(item) {
-    const htmlElement = itemTemplate.cloneNode(true)
-    const cardName = htmlElement.querySelector('.element__img')
-    const cardAlt = htmlElement.querySelector('.element__img')
-    const cardText = htmlElement.querySelector('.element__text')
+    const htmlElement = itemTemplate.cloneNode(true);
+    const cardName = htmlElement.querySelector('.element__img');
+    const cardAlt = htmlElement.querySelector('.element__img');
+    const cardText = htmlElement.querySelector('.element__text');
     cardName.src = item.link
     cardAlt.alt = item.name
     cardText.textContent = item.name
