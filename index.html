@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
+
 <body class="page">
     <div class="page__content">
         <header class="header">
@@ -14,7 +16,7 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__photo" src="./images/img-profile.jpg" alt="Жак-Ив Кусто">
+                <img class="profile__photo" src="./images/img-profile.svg" alt="Жак-Ив Кусто">
                 <div class="profile__info">
                     <div class="profile__title">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -34,10 +36,14 @@
             <div class="popup__container">
                 <button class="popup__close popup__close_create" type="button"></button>
                 <h2 class="popup__edit">Редактировать профиль</h2>
-                <form class="popup__form popup__form_create" name="textPopup">
-                    <input class="popup__input popup__input_type_name" type="text" required placeholder='Впишите имя' name="name">
-                    <input class="popup__input popup__input_type_text" type="text" required placeholder='О личности' name="name-text">
-                    <button class="popup__submit" type="submit">Сохранить</button>
+                <form class="popup__form popup__form_create" name="textPopup" novalidate>
+                    <input class="popup__input popup__input_type_name" type="text" required placeholder='Впишите имя'
+                        name="name" id="name-input" minlength="2" maxlength="40">
+                    <span class="popup__input-error" id="name-input-error"></span>
+                    <input class="popup__input popup__input_type_text" type="text" required placeholder='О личности'
+                        name="text" id="text-input" minlength="2" maxlength="200">
+                    <span class="popup__input-error" id="text-input-error"></span>
+                    <button class="popup__submit" type="submit" disabled>Сохранить</button>
                 </form>
             </div>
         </div>
@@ -45,10 +51,14 @@
             <div class="popup__container popup__container_place">
                 <button class="popup__close popup__close_place" type="button"></button>
                 <h2 class="popup__edit">Новое место</h2>
-                <form class="popup__form popup__form_place" name="imgPopup">
-                    <input class="popup__input popup__input_type_title" type="text" placeholder='Название' name="imgName">
-                    <input class="popup__input popup__input_type_link" type="text" placeholder='Ссылка на картинку' name="linkImg">
-                    <button class="popup__submit" type="submit">Сохранить</button>
+                <form class="popup__form popup__form_place" name="imgPopup" novalidate>
+                    <input class="popup__input popup__input_type_title" type="text" placeholder='Название'
+                        name="imgName" id="imgName-input" minlength="2" maxlength="30">
+                    <span class="popup__input-error" id="imgName-input-error"></span>
+                    <input class="popup__input popup__input_type_link" type="url" placeholder='Ссылка на картинку'
+                        name="linkImg" id="linkImg-input">
+                    <span class="popup__input-error" id="linkImg-input-error"></span>
+                    <button class="popup__submit" type="submit" disabled>Создать</button>
                 </form>
             </div>
         </div>
@@ -70,6 +80,7 @@
             <button class="element__button_basket" type="button"></button>
         </div>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
