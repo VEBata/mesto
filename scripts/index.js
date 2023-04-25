@@ -48,8 +48,8 @@ boxCloseImg.addEventListener('click', () => {
     closePopup(boxAddImg)
 })
 
-const addInputName = document.querySelector('.popup__input_type_title')
-const addInputLink = document.querySelector('.popup__input_type_link')
+const nameInputAdd = document.querySelector('.popup__input_type_title')
+const linkInputAdd = document.querySelector('.popup__input_type_link')
 const itemTemplate = document.querySelector('.template').content.querySelector('.element');
 const elements = document.querySelector('.elements');
 
@@ -100,16 +100,16 @@ initialCards.forEach(function (item) {
 });
 
 //добавляем карточку
-const addFormImg = document.querySelector('.popup__form_place');
+const imgFormAdd = document.querySelector('.popup__form_place');
 
-addFormImg.addEventListener('submit', (event) => {
+imgFormAdd.addEventListener('submit', (event) => {
     event.preventDefault();
     const addNewElement = {
-        name: addInputName.value,
-        link: addInputLink.value
+        name: nameInputAdd.value,
+        link: linkInputAdd.value
     };
     elements.prepend(createCard(addNewElement));
-    addFormImg.reset();
+    imgFormAdd.reset();
     disabledSubmitButton(boxAddImg);
     closePopup(boxAddImg);
 })
