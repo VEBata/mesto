@@ -82,7 +82,7 @@ function createCard(item) {
     //лайк
     cardLike.addEventListener('click', function (event) {
         const like = event.target.closest('.element__button');
-        like.classList.toggle('element__button-active');
+        like.classList.toggle('element__button_active');
     });
     //увеличиваем картинку
     cardName.addEventListener('click', function (event) {
