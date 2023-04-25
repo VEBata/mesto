@@ -9,6 +9,8 @@
 3) CSS grid layout;
 4) JavaScript;
 5) Методология БЭМ (Nested);
+6) валидация
+7) закрытие формы при нажатии esc и на оверлей
 
 
 Ссылка на проект: https://vebata.github.io/mesto/
