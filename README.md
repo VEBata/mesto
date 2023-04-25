@@ -15,7 +15,7 @@
 
 Ссылка на проект: https://vebata.github.io/mesto/
  
-Ссылка на макет в Figma: (https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0-1)
+Ссылка на макет в Figma: (https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0-1&fuid=1206550739173024178)
 
 Планы по доработке:
 Создание галереи карточек с местами
