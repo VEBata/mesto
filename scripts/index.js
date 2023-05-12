@@ -1,12 +1,12 @@
-import Card from "./card.js";
+import Card from "./Card.js";
 import FormValidator from "./FormValidator.js"
 
-const buttonPopupOpen = document.querySelector('.profile__popup');
-const popupBox = document.querySelector('.popup_create');
-const buttonPopupClose = document.querySelector('.popup__close_create');
+const profileOpenButton = document.querySelector('.profile__popup');
+const profilePopup = document.querySelector('.popup_create');
+const profileCloseButton = document.querySelector('.popup__close_create');
 const nameInput = document.querySelector('.popup__input_type_name');
 const textInput = document.querySelector('.popup__input_type_text');
-const popupForm = document.querySelector('.popup__form_create');
+const profileForm = document.querySelector('.popup__form_create');
 const profileName = document.querySelector('.profile__name');
 const profileText = document.querySelector('.profile__text');
 
@@ -21,19 +21,19 @@ function closePopup(popup){
     document.removeEventListener('keydown', handleEscape);
    }
    
-buttonPopupClose.addEventListener('click', () => {
-    closePopup(popupBox);
+profileCloseButton.addEventListener('click', () => {
+    closePopup(profilePopup);
 });
 
-popupForm.addEventListener('submit', (event) => {
+profileForm.addEventListener('submit', (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileText.textContent = textInput.value;
-    closePopup(popupBox);
+    closePopup(profilePopup);
 })
 
-buttonPopupOpen.addEventListener('click', () => {
-    openPopup(popupBox);
+profileOpenButton.addEventListener('click', () => {
+    openPopup(profilePopup);
     nameInput.value = profileName.textContent;
     textInput.value = profileText.textContent;
 })
@@ -94,7 +94,7 @@ function handleOverlayClick(evt) {
     }
 };
 
-popupBox.addEventListener('mousedown', handleOverlayClick);
+profilePopup.addEventListener('mousedown', handleOverlayClick);
 boxAddImg.addEventListener('mousedown', handleOverlayClick);
 popupFull.addEventListener('mousedown', handleOverlayClick);
 
@@ -114,7 +114,7 @@ const validatorConfig = {
     errorClass: 'popup__input-error_active'
   };
   
-  const profileValidator = new FormValidator(validatorConfig, popupBox);
+  const profileValidator = new FormValidator(validatorConfig, profilePopup);
   profileValidator.enableValidation();
   
   const cardValidator = new FormValidator(validatorConfig, boxAddImg);

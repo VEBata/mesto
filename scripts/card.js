@@ -20,9 +20,9 @@ class Card{
 
   createCard () {
     this._element = this._createCardTemplate();
-    this._elementCard = this._element.querySelector('.element__img');
-    this._elementCard.src = this._data.link;
-    this._elementCard.alt = this._data.name;
+    this._cardImage = this._element.querySelector('.element__img');
+    this._cardImage.src = this._data.link;
+    this._cardImage.alt = this._data.name;
     this._element.querySelector('.element__text').textContent = this._data.name;
     this._deleteButton = this._element.querySelector('.element__button_basket');
     this._cardLikeButton = this._element.querySelector('.element__button');
@@ -31,24 +31,24 @@ class Card{
   }
 
   _setEventListeners(){
-    this._deleteButton.addEventListener('click',this._cardDelete);
-    this._cardLikeButton.addEventListener('click',this._cardLike);
-    this._elementCard.addEventListener('click',this._cardFullOpenImg);
+    this._deleteButton.addEventListener('click',this._deleteCard);
+    this._cardLikeButton.addEventListener('click',this._likeCard);
+    this._cardImage.addEventListener('click',this._openCardFullImg);
   }
 
-  _cardDelete = () => {
+  _deleteCard = () => {
     this._element.remove();
   }
 
-  _cardLike = () => {
+  _likeCard = () => {
     this._cardLikeButton.classList.toggle('element__button_active');
   }
 
-  _cardFullOpenImg = () =>{
+  _openCardFullImg = () =>{
     openPopup(this._popupFull)
-    this._imgPopup.src = this._elementCard.src;
-    this._imgPopup.alt = this._elementCard.alt;
-    this._popupHeading.textContent = this._elementCard.alt;
+    this._imgPopup.src = this._cardImage.src;
+    this._imgPopup.alt = this._cardImage.alt;
+    this._popupHeading.textContent = this._cardImage.alt;
   }
  }
 
