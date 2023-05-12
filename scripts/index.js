@@ -84,22 +84,6 @@ imgFormAdd.addEventListener('submit', (event) => {
     closePopup(boxAddImg);
 })
 
-function handleCardClick(cardImage) {
-    openPopup(popupFull);
-    elementFullImg.src = cardImage.link;
-    elementFullHeading.textContent = cardImage.name;
-    elementFullImg.alt = cardImage.name;
-  }
-
-  popupFullClose.addEventListener('click', () => closePopup(popupFull));ё
-
-// const popupFull = document.querySelector('.popup-full');
-// const popupFullClose = document.querySelector('.popup-full__close');
-
-// popupFullClose.addEventListener('click', () => {
-//     closePopup(popupFull);
-// })
-
 //закрываем оверлеем
 function handleOverlayClick(evt) {
     if (evt.target.classList.contains('popup')) {
