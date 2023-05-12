@@ -9,6 +9,10 @@ const textInput = document.querySelector('.popup__input_type_text');
 const profileForm = document.querySelector('.popup__form_create');
 const profileName = document.querySelector('.profile__name');
 const profileText = document.querySelector('.profile__text');
+const popupFull = document.querySelector('.popup-full');
+const popupFullClose = document.querySelector('.popup-full__close');
+const elementFullImg = document.querySelector('.popup__img-full');
+const elementFullHeading = document.querySelector('.popup__heading-full');
 
 //открыываем  popup
 export function openPopup(popup){
@@ -55,7 +59,7 @@ cardAdd.addEventListener('click', () => {
 })
 
 function createCard(data) {
-    const card = new Card(data, '.template');
+    const card = new Card(data, '.template', handleCardClick);
     return card.createCard();
   };
 
@@ -80,12 +84,21 @@ imgFormAdd.addEventListener('submit', (event) => {
     closePopup(boxAddImg);
 })
 
-const popupFull = document.querySelector('.popup-full');
-const popupFullClose = document.querySelector('.popup-full__close');
+function handleCardClick(cardImage) {
+    openPopup(popupFull);
+    elementFullImg.src = cardImage.link;
+    elementFullHeading.textContent = cardImage.name;
+    elementFullImg.alt = cardImage.name;
+  }
 
-popupFullClose.addEventListener('click', () => {
-    closePopup(popupFull);
-})
+  popupFullClose.addEventListener('click', () => closePopup(popupFull));
+
+// const popupFull = document.querySelector('.popup-full');
+// const popupFullClose = document.querySelector('.popup-full__close');
+
+// popupFullClose.addEventListener('click', () => {
+//     closePopup(popupFull);
+// })
 
 //закрываем оверлеем
 function handleOverlayClick(evt) {

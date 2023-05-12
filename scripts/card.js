@@ -1,12 +1,13 @@
 import {openPopup} from "./index.js";
 
 class Card{
-  constructor(data,templateSelector) {
+  constructor(data,templateSelector, handleCardClick) {
     this._data = data;
     this._templateSelector = templateSelector;
-    this._popupFull = document.querySelector('.popup-full')
-    this._imgPopup = this._popupFull.querySelector('.popup__img-full');
-    this._popupHeading = this._popupFull.querySelector('.popup__heading-full');
+    this._handleCardClick = handleCardClick;
+    // this._popupFull = document.querySelector('.popup-full')
+    // this._imgPopup = this._popupFull.querySelector('.popup__img-full');
+    // this._popupHeading = this._popupFull.querySelector('.popup__heading-full');
   }
 
   _createCardTemplate() {
@@ -33,7 +34,11 @@ class Card{
   _setEventListeners(){
     this._deleteButton.addEventListener('click',this._deleteCard);
     this._cardLikeButton.addEventListener('click',this._likeCard);
-    this._cardImage.addEventListener('click',this._openCardFullImg);
+    this._cardImage.addEventListener('click', () =>
+    this._handleCardClick({
+      link: this._data.link,
+      name: this._data.name,
+    }));
   }
 
   _deleteCard = () => {
