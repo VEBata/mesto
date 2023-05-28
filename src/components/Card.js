@@ -1,8 +1,7 @@
-import {openPopup} from "./index.js";
-
 class Card{
-  constructor(data,templateSelector, handleCardClick) {
-    this._data = data;
+  constructor({data,handleCardClick}, templateSelector) {
+    this._name = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -16,12 +15,12 @@ class Card{
     return cardElement;
   }
 
-  createCard () {
+ getCard () {
     this._element = this._createCardTemplate();
     this._cardImage = this._element.querySelector('.element__img');
-    this._cardImage.src = this._data.link;
-    this._cardImage.alt = this._data.name;
-    this._element.querySelector('.element__text').textContent = this._data.name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._element.querySelector('.element__text').textContent = this._name;
     this._deleteButton = this._element.querySelector('.element__button_basket');
     this._cardLikeButton = this._element.querySelector('.element__button');
     this._setEventListeners()
@@ -32,10 +31,7 @@ class Card{
     this._deleteButton.addEventListener('click',this._deleteCard);
     this._cardLikeButton.addEventListener('click',this._likeCard);
     this._cardImage.addEventListener('click', () =>
-    this._handleCardClick({
-      link: this._data.link,
-      name: this._data.name,
-    }));
+    this._handleCardClick(this._name, this._link));
   }
 
   _deleteCard = () => {
@@ -44,13 +40,6 @@ class Card{
 
   _likeCard = () => {
     this._cardLikeButton.classList.toggle('element__button_active');
-  }
-
-  _openCardFullImg = () =>{
-    openPopup(this._popupFull)
-    this._imgPopup.src = this._cardImage.src;
-    this._imgPopup.alt = this._cardImage.alt;
-    this._popupHeading.textContent = this._cardImage.alt;
   }
  }
 
