@@ -1,59 +1,58 @@
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: "./src/pages/index.js",
+  entry: './src/pages/index.js',
   output: {
-    filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  mode: "development",
+  mode: 'development',
   devServer: {
-    static: path.resolve(__dirname, "dist"),
-    open: true,
-    port: 8080,
+    static: path.resolve(__dirname, 'dist'),
     compress: true,
+    port: 8080,
+    open: true
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         use: 'babel-loader',
-        exclude: '/node_modules/',
+        exclude: '/node_modules/'
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: { importLoaders: 1 },
-          }, 'postcss-loader']
+
+        use: [MiniCssExtractPlugin.loader, {
+          loader: 'css-loader',
+          options: { importLoaders: 1 }
+        }, 'postcss-loader'
+        ]
       },
       {
-        test: /\.(svg|jpg)$/,
+        test: /\.(jpg|svg)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name].[nash][ext]',
+          filename: 'images/[hash][ext]',
         }
       },
-            {
+      {
         test: /\.(woff2|woff)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[nash][ext]',
+          filename: 'fonts/[hash][ext]',
         }
-      },
+      }
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ 
-      template: "./src/index.html" }),
-    new MiniCssExtractPlugin({
-      filename: "index.css",
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
     }),
-  ],
+    new MiniCssExtractPlugin()
+  ]
 };
