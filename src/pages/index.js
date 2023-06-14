@@ -185,7 +185,7 @@ const popupAddForm = new PopupWithForm(boxAddImg, {
     api
       .addNewPhotocard(data.nameImg, data.linkImg)
       .then((res) => {
-        cardsContainer.newAddItem(createCard(res));
+        cardsContainer.addNewItem(createCard(res));
         popupAddForm.close();
       })
       .catch((err) => {
